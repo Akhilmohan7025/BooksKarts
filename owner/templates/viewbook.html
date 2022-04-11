@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{%block body_block%}
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            {% if detail.item.images%}
+            <img src="{{detail.item.images.url}}" class="card-img-top" alt="nill">
+            {%endif%}
+            <div class="card-body">
+                <h5 class="card-title text-center">ORDER DETAILS </h5>
+                <h5 class="card-title ">User-{{detail.user}}</h5>
+                <h5 class="card-title">E-mail-{{detail.user.email}}</h5>
+                <h5 class="card-title">Address-{{detail.address}}</h5>
+                <h5 class="card-title ">Book Name-{{detail.item.book_name}}</h5>
+                <h5 class="card-title">Author -{{detail.item.author}}</h5>
+                <h5 class="card-title">Price -{{detail.item.price}}</h5>
+                <h5 class="card-title">Ordered Date-{{detail.date}}</h5>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="col-2"></div>
+
+{%endblock%}

@@ -1,0 +1,37 @@
+{%extends "index.html"%}
+{%block body_block%}
+{%for cart in items%}
+<div class="row">
+    <div class="col-4">
+        <img src="{{cart.item.images.url}}" class="card-img-top" alt="..." height="200px" width="100%">
+    </div>
+    <div class="col-4">
+        <div class="card-body">
+            <h5 class="card-title">Book name: {{cart.item.book_name}}</h5>
+            <h5 class="card-title">Author: {{cart.item.author}}</h5>
+            <h5 class="card-title">Copies: {{cart.item.copies}}</h5>
+            <h5 class="card-title">Date: {{cart.date}}</h5>
+
+
+        </div>
+    </div>
+    <div class="col-4 mt-4">
+        <h5 class="card-title">Price: {{cart.item.price}}</h5>
+        <span>{{cart.status}}</span>
+        <a href="{%url 'orderplaced' cart.item.id cart.id%}" class="btn btn-success">BUY NOW </a>
+        <div class="col mt-3">
+            <a href="{%url 'removecartsitem' cart.id%}" class="btn btn-outline-danger">REMOVE </a>
+
+        </div>
+
+    </div>
+</div>
+{%endfor%}
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4"></div>
+    <div class="col-4">
+        <h4><strong>Total<span>:{{total}}</span></strong></h4>
+    </div>
+</div>
+{%endblock%}

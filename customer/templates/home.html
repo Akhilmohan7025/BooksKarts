@@ -1,0 +1,29 @@
+{%extends 'index.html'%}
+{%block body_block%}
+<h1 style="font-family: 'Pacifico', cursive;">Welcome-{{request.user}}</h1>
+<div class="row">
+    {%for key in home%}
+    <div class="col-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body" align="center">
+                {%if key.images%}
+                <img src="{{key.images.url}}" class="card-img-top" alt="" height="200">
+                {%endif%}
+                <h5 class="card-title text-center">BooKs</h5>
+                <h6 class="card-subtitle mb-2 text-muted text-center">Book name-{{key.book_name}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted text-center">Athor-{{key.author}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted text-center">Price-{{key.price}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted text-center">Copies-{{key.copies}}</h6>
+
+                <a href="{%url 'addtocart' key.id%}" class="btn btn-primary " >Add to cart </a>
+
+
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+
+</div>
+
+
+{%endblock%}
